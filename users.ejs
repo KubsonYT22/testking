@@ -1,0 +1,127 @@
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="assets/style2.css">
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Users</title> 
+
+</head>
+<body class="dark">
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="assets/logo.png" alt="">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Bypass | Config</span>
+                    <span class="profession">Panel Adminia</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <!-- <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li> -->
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/admin/"  >
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Ogólne</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/admin/users.html" class="selected">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Użytkownicy</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Pliki</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+<!-- 
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Wyloguj</span>
+                    </a>
+                </li> -->
+
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li> -->
+                
+            </div>
+        </div>
+
+    </nav>
+
+
+    
+
+
+    <section class="home">
+        <div class="text">Użytkownicy</div>
+    </section>
+
+    <script src="assets/script.js"></script>
+
+
+    <div class="users">
+        
+        <a class="dane">Użytkownicy</a>
+        <div class="usersl" style="overflow-y: scroll;">  
+        <% users.forEach(user => { %>
+
+            
+                <a><strong>Username:</strong> <%= user.name %>  <strong>Token:</strong> <%= user.token %> <strong>IP:</strong> <%= user.ip %> <strong>BL:</strong> <%= user.blacklist %> </a>
+
+
+        <% if(user.blacklist == false) { %>
+            <ion-icon request="block" style="color: red;" data-user= <%= user.name %> class="test" name="ban"></ion-icon>
+        <% } else { %>
+            <ion-icon request="unblock" style="color: lightgreen;" data-user= <%= user.name %> class="test" name="lock-open"></ion-icon>
+        <% } %>
+            <br>    
+        <% }) %>
+    </div> 
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
